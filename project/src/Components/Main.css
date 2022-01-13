@@ -1,0 +1,58 @@
+.home{
+    background-image: url('./images.png');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+}
+.Navbar{
+    display:inline;
+    position:fixed;
+    font-size:30px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color:black;
+    float: left;
+
+   
+}
+a{
+    color:white;
+    padding-left:200px;
+    font-style: none;
+}
+.login{
+    font-size:  120%;
+    font-family: cursive;
+    padding-top: 150px;
+    padding-left: 400px;
+    background-image: url('./image1.png');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+}
+label{display: flex;
+    color: blue;
+    font-size:25px;
+    font-weight:bold;
+    
+}
+.form-control{
+  font-weight: bold;
+  font-size:25px;
+  padding-right: 70%;
+  
+}
+.register{
+    background-image: url('./register.jpg');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+
+
+}
+
