@@ -12,6 +12,7 @@ const Posts = () => {
     dispatch(getAllPosts())
     dispatch(loadUser())
     },[]) 
+    console.log('postList', postList)
     return (
         <>
         <div style={{display: 'flex',flexDirection: 'column',justifyContent: 'center',justifyItems:'center',width:'30%',
