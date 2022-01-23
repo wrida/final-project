@@ -23,5 +23,5 @@ const postSchema = mongoose.Schema({
     default:new Date
  }
 })
-
+   
 module.exports =mongoose.model('post',postSchema)

@@ -7,9 +7,10 @@ const jwt = require('jsonwebtoken')
 //@access public
 const register = async(req,res) => {
     try {
+        const photoPath = `http://localhost:5000/uploads/${req.file.filename}`;
         const {name,userName,email,password}= req.body
         const hashedPassword = await bcrypt.hash(password,10) 
-        const newUser = await User.create({name,userName,email,password:hashedPassword})
+        const newUser = await User.create({name,userName,email,password:hashedPassword,photo:photoPath})
         const token = jwt.sign({id:newUser._id},process.env.JWT_SECRET)
         res.json({msg:'User created successfully',newUser,token})
     } catch (error) {

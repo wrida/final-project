@@ -1,6 +1,5 @@
-const Post = require('../models/postModel')
-
-
+const Post = require('../models/postModel');
+;
 
 
 
@@ -8,13 +7,15 @@ const Post = require('../models/postModel')
 //@route POST /api/post/addPost
 //@access PRIVATE/user
 const addPost = async(req,res) => {
-  try {
-    console.log(req.body.info)
-      const newBody = JSON.parse(req.body.info);
-      const imagePath = `http://localhost:5000/uploads/${req.file.filename}`;
+  const newBody = JSON.parse(req.body.info);
 
+  try {
+
+      
+      const imagePath = `http://localhost:5000/uploads/${req.file.filename}`;
+    
       const{title,desc,image} = newBody
-      const newPost = await Post.create({title:newBody.title,desc:newBody.desc,image,owner:req.userId,image:imagePath})
+      const newPost = await Post.create({title:newBody.title,desc:newBody.desc,owner:req.userId,image:imagePath})
       res.json(newPost)
     } catch (error) {
       console.error(error)
@@ -26,7 +27,7 @@ const addPost = async(req,res) => {
 //@access public
 const getPosts =async(req,res) => {
     try {
-      const posts = await Post.find({})
+      const posts = await Post.find({}).populate('owner')
       res.json(posts)
     } catch (error) {
         res.status(500).json({msg: `something went wrong ${error}`})  

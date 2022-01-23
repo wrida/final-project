@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const repairman = () => {
+const OurServices = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ export const repairman = () => {
     )
 }
 
-export default repairman
+export default OurServices

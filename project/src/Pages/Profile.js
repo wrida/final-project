@@ -1,13 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import {useSelector, useDispatch } from 'react-redux';
 import { loadUser } from './../slices/userSlice';
 import {useEffect,useState} from 'react';
-import {addPost} from '../slices/postSlice';
+import {addPost,getAllPosts} from '../slices/postSlice';
+
 
 function Profile() {
     const dispatch = useDispatch()
+    const post = useSelector((state)=>state.posts);
+    const {userInfo} = useSelector((state)=>state.users);
     useEffect(()=>{
-    dispatch(loadUser())
+    dispatch(loadUser());
+    dispatch(getAllPosts());
     
     },[])
     const [postInfo, setpostInfo] = useState({});
@@ -17,30 +21,21 @@ function Profile() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(postInfo)
-      dispatch(addPost({postInfo,file}))  
+      console.log('POST : ',{ postInfo, file})
+      dispatch(addPost({ postInfo, file}))  
     }
     return (
-        <div>
-          <form style ={{paddingTop:'100px',paddingLeft:'80px'}}>
-              <input type="text" name="title" onChange = {handleChange} placeholder="Title"/>
-              <input type="text" name="desc" onChange ={handleChange} placeholder="Description"/> 
-              <input type="file" name="file" onChange = {(e)=>setfile(e.target.files[0])}/>
-              <button type="submit" onClick={handleSubmit}> add post</button>
-          </form>
+      <div style={{width:'100%',height:'500px',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}> 
+
+        <div style={{width:'50%',height:'200px',display:'flex',flexDirection:'column',justifyContent: 'center',alignItems: 'center',border: '1px solid'}} >
+         <h2>Name :{userInfo.name} </h2>
+         {<h2>Username :{userInfo.userName} </h2>}
+         <h2>Email :{userInfo.email} </h2>
           <br/>
           <div>
-              {post.posts && post.posts.map(post =>(
-              <>
-              <h2> {post.title}</h2>
-              < img src={post.image} alt ='img not found'/>
-              <p>
-              {post.desc}
-              </p>
-              </>
-              
-            ))}
+
           </div>
+        </div>
         </div>
     )
 }

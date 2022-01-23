@@ -17,14 +17,15 @@ export const getAllPosts = createAsyncThunk(
     }
 )
 export const addPost = createAsyncThunk(
-    'posts/addPost',async(info,{rejectWithValue})=>{
+    'posts/addPost',async(info,{rejectWithValue,dispatch})=>{
         const formData = new FormData();
         formData.append('picture', info.file);
         formData.append('info',JSON.stringify({...info.postInfo}));
         console.log(Array.from(formData));
        try {
          const {data} = await axios.post('/api/post/addPost',formData, {headers:{token:localStorage.getItem('token')}
-        }) 
+        })
+        
          return data
        } catch (errors) {
         return  rejectWithValue(errors.response.data) 
@@ -61,7 +62,7 @@ const postSlice = createSlice({
             },
         [addPost.fulfilled]:(state,action)=>{
             state.loading = false;
-            state.postList = action.payload
+            state.postList = [...state.postList,action.payload]
             state.errors = null
                         
         },

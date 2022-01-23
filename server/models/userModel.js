@@ -14,9 +14,21 @@ const userSchema = mongoose.Schema({
         required:true,
         minlength:8
     },
+    address:{
+        city: String,
+        street: String,
+        postalCode: String,
+
+    },
+    prestations:{
+        type:String,
+        enum:['phone','pc',
+        'tablet','printer'
+    ]
+    },
     role:{
         type: String,
-        enum: ["user", "repairman"],
+        enum: ["user", "admin","repairman"],
     },
     logo: String,
     portofolio: String,
@@ -24,4 +36,4 @@ const userSchema = mongoose.Schema({
     Member_Since: Date,
 })
 
-module.exports =mongoose.model('user',userSchema)
+module.exports = mongoose.model('user',userSchema)
