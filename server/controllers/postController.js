@@ -13,9 +13,8 @@ const addPost = async(req,res) => {
 
       
       const imagePath = `http://localhost:5000/uploads/${req.file.filename}`;
-    
       const{title,desc,image,address,photo} = newBody
-      const newPost = await Post.create({title:title,desc:desc,owner:req.userId,image:imagePath,address:address,photo:photo})
+      const newPost = await Post.create({title:title,desc:desc,owner:req.userId,image:imagePath})
       res.json(newPost)
     } catch (error) {
       console.error(error)
