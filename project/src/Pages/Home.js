@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Components/Main.css'
+import '../Components/Navbar.css'
 
 
 const Home = () => {

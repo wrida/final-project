@@ -1,5 +1,5 @@
 const Post = require('../models/postModel');
-;
+
 
 
 
@@ -14,8 +14,8 @@ const addPost = async(req,res) => {
       
       const imagePath = `http://localhost:5000/uploads/${req.file.filename}`;
     
-      const{title,desc,image} = newBody
-      const newPost = await Post.create({title:newBody.title,desc:newBody.desc,owner:req.userId,image:imagePath})
+      const{title,desc,image,address,photo} = newBody
+      const newPost = await Post.create({title:title,desc:desc,owner:req.userId,image:imagePath,address:address,photo:photo})
       res.json(newPost)
     } catch (error) {
       console.error(error)
@@ -32,6 +32,7 @@ const getPosts =async(req,res) => {
     } catch (error) {
         res.status(500).json({msg: `something went wrong ${error}`})  
     }
+
 }
 
 module.exports = {addPost,getPosts}

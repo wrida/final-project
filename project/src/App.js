@@ -5,7 +5,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Profile from './Pages/Profile';
 import ContactUs from './Pages/ContactUs';
-import Navbar from './Components/Main';
+import Navbar from './Components/Navbar';
 import PrivateRoute from './Components/PrivateRoute';
 import Posts from './Pages/Posts';
 

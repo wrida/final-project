@@ -9,20 +9,18 @@ import{ useSelector} from 'react-redux'
 
 const PostCard = ({title,desc,image,owner,_id}) => {
       const [show, setShow] = useState(false);
-//  const {userInfo} = useSelector(state=>state.User)
+  //const {userInfo} = useSelector(state=>state.User)
  
     return (
       <div>
-      <Card style={{display: 'flex',width:'300px',justifyContent: 'space-around'}}>
-      <div style={{display: 'flex',justifyContent: 'space-between'}}>
-<h3>{owner.name} </h3>
+      <Card style={{display: 'flex',width:'300px',justifyContent: 'space-between'}}>
+      <div style={{display: 'flex',justifyContent: 'space-between',padding:'5px 10ppx'}}>
+        <h3>{owner.name} </h3>
+        {/*userInfo._id === owner._id && <i class="fas fa-trash" style={{color:'red',cursor:'pointer'}}></i>*/}
+      </div>
 <Button variant="outline-primary" style={{width:'50px'}} onClick={()=>setShow(true)} ><BiUser /></Button>
 
-{/* {userInfo._id ===_id && <i class="fas fa-trash" style={{color: 'red',cursor: 'pointer'}}></i>} */}
-</div>
-
-
-      <Card.Header>{title}</Card.Header>
+     <Card.Header>{title}</Card.Header>
       <Image style={{width:'300px'}} src={image} width={500} height={230} mode='fit'/>
       <Card.Content>
 <Card.Description>{desc}</Card.Description>

@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
         required:true,
     },
     email:{type:String,
-           unique:true},
+        unique:true},
     password:{
         type:String,
         required:true,
@@ -19,6 +19,9 @@ const userSchema = mongoose.Schema({
         street: String,
         postalCode: String,
 
+    },
+    photo:{
+        type:String,
     },
     prestations:{
         type:String,

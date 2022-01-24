@@ -31,11 +31,7 @@ function Profile() {
          <h2>Name :{userInfo.name} </h2>
          {<h2>Username :{userInfo.userName} </h2>}
          <h2>Email :{userInfo.email} </h2>
-          <br/>
-          <div>
-
-          </div>
-        </div>
+         </div>
         </div>
     )
 }
