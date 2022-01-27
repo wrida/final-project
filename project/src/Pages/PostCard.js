@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { BiUser } from "react-icons/bi";
 import Modal from 'react-bootstrap/Modal'
 import{ useSelector,useDispatch} from 'react-redux'
-import { deletePost } from './../slices/postSlice';
+import { uploadPicture } from '../slices/userSlice';
 
 
 
@@ -20,7 +20,7 @@ const dispatch = useDispatch()
         {userInfo._id === owner._id &&
          <i class="fas fa-trash" 
          style={{color:'red',cursor:'pointer'}}
-         onClick={()=>dispatch(deletePost)}
+         onClick={()=>dispatch(uploadPicture)}
          ></i>}
       </div>
 <Button variant="outline-primary" style={{width:'50px'}} onClick={()=>setShow(true)} ><BiUser /></Button>

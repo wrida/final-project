@@ -22,10 +22,11 @@ function Profile() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-      console.log('POST : ',{ postInfo, file})
+      //console.log('POST : ',{ postInfo, file})
       dispatch(addPost({ postInfo, file}))
       dispatch(loadUser()); 
       dispatch(uploadPicture({userInfo,file})) 
+      console.log('USER : ',{userInfo,file})
     }
     return (
       <div className="profile" style={{width:'100%',height:'500px',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}> 
@@ -33,7 +34,7 @@ function Profile() {
         <button type ='submit'onClick={handleSubmit}>
          Add photo
         </button>
-        
+        <img src={userInfo.photo} />
         <div style={{width:'50%',height:'200px',display:'flex',flexDirection:'column',justifyContent: 'center',alignItems: 'center',border: '1px solid'}} >
          <h2>Name :{userInfo.name} </h2>
          {<h2>Username :{userInfo.userName} </h2>}
