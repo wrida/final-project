@@ -59,14 +59,6 @@ const updateProfilePicture = async (req, res) => {
   }
 }
 
-const getProfilePhoto =async (req, res) => {
-    try {
-        const photos = await User.find({})
-        res.json(photos)
-    } catch (error) {
-        res.status(500).json({msg: `something went wrong ${error}`})  
-    }
-}
 
 
-module.exports = {register,login,loadUserInfo,updateProfilePicture,getProfilePhoto}
+module.exports = {register,login,loadUserInfo,updateProfilePicture}

@@ -30,11 +30,13 @@ function Profile() {
     }
     return (
       <div className="profile" style={{width:'100%',height:'500px',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}> 
+         <div style={{paddingLeft:'0',paddingTop:'0',paddingRight:'35%'}}>
         <input type="file" name="file" onChange = {(e)=>setFile(e.target.files[0])}/>
         <button type ='submit'onClick={handleSubmit}>
          Add photo
         </button>
-        <img src={userInfo.photo} />
+        </div>
+        <img style={{width:'10%',height:'30%'}} src={userInfo.photo} />
         <div style={{width:'50%',height:'200px',display:'flex',flexDirection:'column',justifyContent: 'center',alignItems: 'center',border: '1px solid'}} >
          <h2>Name :{userInfo.name} </h2>
          {<h2>Username :{userInfo.userName} </h2>}

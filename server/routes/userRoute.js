@@ -17,6 +17,6 @@ router.post('/register',register)
 router.post('/login',login)
 router.get("/loadUser",middleware,loadUserInfo)
 router.put('/uploadPhoto',middleware,upload.single('photo'),updateProfilePicture)
-router.get('/',getProfilePhoto)
+
 
 module.exports = router
