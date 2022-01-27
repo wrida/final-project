@@ -8,6 +8,7 @@ import ContactUs from './Pages/ContactUs';
 import Navbar from './Components/Navbar';
 import PrivateRoute from './Components/PrivateRoute';
 import Posts from './Pages/Posts';
+import Users from './Pages/Users';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/posts' element={<Posts/>}/>
+        <Route path='/users' element={<Users/>}/>
         <Route  element={<PrivateRoute/>}>
         <Route path='/profile' element={<Profile/>}/>
         </Route>

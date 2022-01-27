@@ -35,7 +35,7 @@ const Posts = () => {
             Add post
           </Button>}
 
-      <div style={{display:'flex'}}>
+      <div style={{display:'flex', flexWrap:'wrap', gap: '20px'}}>
         {postList  && postList.map((item)=>{return(<PostCard title={item.title} owner={item.owner} _id={item._id} desc={item.desc} image={item.image} />)})}
         </div> 
         <Modal show={show} onHide={()=>{setShow(false)}}>

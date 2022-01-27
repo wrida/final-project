@@ -51,9 +51,26 @@ export const uploadPicture = createAsyncThunk(
         }
     }
 )
+
+
+// get a User list
+export const getAllUsers = createAsyncThunk(
+    'users/getAllUsers',async(userInput,{rejectWithValue})=>{
+       
+       try {
+         const {data} = await axios.post('/api/user/getusers', userInput)
+         return data
+       } catch (errors) {
+        return  rejectWithValue(errors.response.data.message
+            ? errors.response.data.message
+            : errors.response.data.errors.password.msg) 
+       } 
+    }
+)
 const userSlice = createSlice({
     name: 'user',
     initialState:{
+        userList: [],
         userInfo:{},
         isAuth:Boolean(localStorage.getItem('isAuth')) || false,
         errors:null,
@@ -73,6 +90,16 @@ const userSlice = createSlice({
      [register.pending]:(state)=>{
      state.loading = true
      },
+
+     [getAllUsers.pending]:(state)=>{
+        state.loading = true;
+    },
+    [getAllUsers.fulfilled]:(state,action)=>{
+        state.loading = false;
+        state.userList = action.payload
+        state.errors = null
+        
+    },
      [register.fulfilled]:(state,action)=>{
         state.loading = false
         state.token = action.payload.token
