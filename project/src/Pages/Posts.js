@@ -24,7 +24,6 @@ const Posts = () => {
       setTitle("");
       setDescription("");
       setfile("")
-    console.log({ postinfo:{title:title,desc:description}, file})
     dispatch(addPost({ postInfo:{title:title,desc:description}, file})) 
     setShow(false) 
   }

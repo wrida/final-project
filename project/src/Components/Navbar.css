@@ -67,13 +67,20 @@ label{display: flex;
   
 }
 .register{
-    background-image: url('./register.jpg');
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 130vh;
-
-
+  font-size:30px;
+  padding-left:250px;
+  padding-top: 50px;
+  background-color: rgb(180, 12, 45);
+  height: 130vh;
+}
+.h3{
+  font-size:70px;
+  padding-left:250px;
+  padding-top: 100px;
+}
+label{
+  font-family: monospace;
+  font-size:50px;
+  color:cornflowerblue;
 }
 

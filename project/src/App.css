@@ -12,6 +12,16 @@
  padding-left: 35%;
  padding-right: 35%;
 }
+.profile{
+ background-image: url(./Components/profile.jpg);
+ color:white;
+ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-style: oblique;
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+
+}
 
 .App-logo {
   height: 40vmin;

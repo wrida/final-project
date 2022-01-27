@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch } from 'react-redux';
-import { loadUser } from './../slices/userSlice';
+import { loadUser,uploadPicture } from './../slices/userSlice';
 import {useEffect,useState} from 'react';
 import {addPost,getAllPosts} from '../slices/postSlice';
 
@@ -13,20 +13,27 @@ function Profile() {
     dispatch(loadUser());
     dispatch(getAllPosts());
     
+    
     },[])
     const [postInfo, setpostInfo] = useState({});
-    const [file, setfile] = useState({});
+    const [file, setFile] = useState({});
     const handleChange = (e) => {
       setpostInfo({...postInfo, [e.target.name]:e.target.value}); 
     };
     const handleSubmit = (e) => {
         e.preventDefault();
       console.log('POST : ',{ postInfo, file})
-      dispatch(addPost({ postInfo, file}))  
+      dispatch(addPost({ postInfo, file}))
+      dispatch(loadUser()); 
+      dispatch(uploadPicture({userInfo,file})) 
     }
     return (
-      <div style={{width:'100%',height:'500px',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}> 
-
+      <div className="profile" style={{width:'100%',height:'500px',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}> 
+        <input type="file" name="file" onChange = {(e)=>setFile(e.target.files[0])}/>
+        <button type ='submit'onClick={handleSubmit}>
+         Add photo
+        </button>
+        
         <div style={{width:'50%',height:'200px',display:'flex',flexDirection:'column',justifyContent: 'center',alignItems: 'center',border: '1px solid'}} >
          <h2>Name :{userInfo.name} </h2>
          {<h2>Username :{userInfo.userName} </h2>}

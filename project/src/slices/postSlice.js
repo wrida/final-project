@@ -21,7 +21,6 @@ export const addPost = createAsyncThunk(
         const formData = new FormData();
         formData.append('picture', info.file);
         formData.append('info',JSON.stringify({...info.postInfo}));
-        console.log(Array.from(formData));
        try {
          const {data} = await axios.post('/api/post/addPost',formData, {headers:{token:localStorage.getItem('token')}
         })

@@ -7,10 +7,9 @@ const jwt = require('jsonwebtoken')
 //@access public
 const register = async(req,res) => {
     try {
-        const photoPath = `http://localhost:5000/serveruploads/${req.file.filename}`;
         const {name,userName,email,password}= req.body
         const hashedPassword = await bcrypt.hash(password,10) 
-        const newUser = await User.create({name,userName,email,password:hashedPassword,address,photo:photoPath})
+        const newUser = await User.create({name,userName,email,password:hashedPassword})
         const token = jwt.sign({id:newUser._id},process.env.JWT_SECRET)
         res.json({msg:'User created successfully',newUser,token})
     } catch (error) {
@@ -41,12 +40,24 @@ const login = async(req,res) => {
 const loadUserInfo = async(req, res) => {
 try {
     const user = await User.findById(req.userId).select('-password')
-    console.log(user)
     res.json(user)
 } catch (error) {
     res.status(500).json({msg: `something went wrong ${error}`})
 }
 }
 
+//@upload photo for profile
+//@route PUT /api/user/uploadPhoto
+//@access PRIVATE/user
+const updateProfilePicture = async (req, res) => {
+  try {
+     const photoPath = `http://localhost:5000/serveruploads/${req.file.filename}`;
+     const userPicture = await User.findByIdAndUpdate(req.userId,{photo:photoPath})
+     res.json({msg : 'image is updated'}) 
+  } catch (error) {
+    res.status(500).json({msg: `something went wrong ${error}`})  
+  }
+}
 
-module.exports = {register,login,loadUserInfo}
+
+module.exports = {register,login,loadUserInfo,updateProfilePicture}

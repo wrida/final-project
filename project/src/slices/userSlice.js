@@ -36,6 +36,21 @@ export const loadUser = createAsyncThunk(
         }
     }
 )
+// upload profile image
+export const uploadPicture = createAsyncThunk(
+    'user/uploadPicture',async(info,{rejectWithValue})=> {
+        const formData = new FormData();
+        formData.append('photo', info.file);
+        formData.append('info',JSON.stringify({...info.postInfo}));
+        try {
+            const{data} = await axios.put('api/user/uploadPhoto',formData, {headers:{token:localStorage.getItem('token')}
+        })
+            return data;
+        } catch (errors) {
+        return  rejectWithValue(errors.response.data)  
+        }
+    }
+)
 const userSlice = createSlice({
     name: 'user',
     initialState:{
@@ -100,6 +115,22 @@ const userSlice = createSlice({
            state.loading = false
            state.errors = action.payload
          },
+    //! upload user profile picture
+    [uploadPicture.pending]:(state)=>{
+        state.loading = true  
+    },
+    [uploadPicture.fulfilled]:(state,action)=>{
+        state.loading = false
+        state.userInfo = action.payload
+        state.isAuth = true
+        state.errors = null
+    },
+    [uploadPicture.rejected]:(state,action)=>{
+        state.loading = false
+        state.errors = action.payload
+        state.isAuth = true
+        state.errors = null
+    },
     }
 })
 
