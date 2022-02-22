@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+  background-image: url(https://image.shutterstock.com/image-vector/abstract-blue-wavy-background-gold-260nw-1899384751.jpg);
+}
+.contact{
+ background-image: url(./contact-us.jpg); 
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+ height: 130vh;
+ padding-top: 100px;
+ padding-left: 35%;
+ padding-right: 35%;
+}
+.users{
+  background-image: url(https://media.istockphoto.com/illustrations/user-profile-icon-glassy-modern-blue-button-abstract-background-illustration-id1200200944?k=20&m=1200200944&s=170667a&w=0&h=cUV-DqDkwbKrLdEGimsI9LPkfkcuob28kkRF-sdFYMU=);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.profile{
+ background-image: url(./Components/profile.jpg);
+ color:white;
+ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-style: oblique;
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

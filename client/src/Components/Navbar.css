@@ -1,0 +1,74 @@
+.home{
+    color:white;
+    background-image: url('./images.jpg');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+}
+.nav{
+   display: flex;
+   justify-content:'space-between';
+   min-height: 10vh;
+   align-items: center;
+   
+}
+ul.nav-links{
+    display: flex;
+    margin:10,20,10,10;
+    justify-content:space-around;
+    text-transform: uppercase;
+    font-family:monospace; 
+}
+ul.nav-links a{
+    color:black;
+    font-size:20px;
+    display: flex;
+    justify-items: center;
+    margin-left: 50px;
+    font-weight:normal;
+    
+    cursor: pointer;
+}
+ul.nav-links a:hover{
+    border-bottom: 1px solid #fff;
+}
+a{
+   text-decoration: none;
+}
+
+.login{
+    display: block;
+    font-size:  120%;
+    font-family: cursive;
+    padding-top: 150px;
+    padding-left: 400px;
+    background-image: url('./login.webp');
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+}
+.form-control{
+  font-weight: bold;
+  font-size:25px;
+  padding-right: 70%;
+  
+}
+.register{
+  font-size:30px;
+  padding-left:250px;
+  padding-top: 50px;
+  background-image: url('./register.jpg');
+  height: 130vh;
+}
+.reg{
+  font-size:70px;
+  color:white;
+  padding-left:200px;
+  padding-top: 100px;
+}
+
+
