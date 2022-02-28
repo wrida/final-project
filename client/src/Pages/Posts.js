@@ -27,10 +27,9 @@ const Posts = () => {
     dispatch(addPost({ postInfo:{title:title,desc:description}, file}))
     setShow(false) 
   }
-  //console.log(userInfo)
     return (
         <>
-        <div style={{backgroundColor:'mediumblue',display:'flex',flexDirection:'column'}}>
+        <div style={{backgroundColor:'#DDD',display:'flex',flexDirection:'column',paddingLeft:'15%'}}>
         {isAuth &&  <Button variant="primary" onClick={()=>setShow(true)} style={{width:'150px',marginBottom:'15px'}} >
             Add post
           </Button>}
@@ -46,8 +45,7 @@ const Posts = () => {
   <Form.Group className="mb-2" >
     <Form.Label>Title</Form.Label>
     <input value={title} onChange={(e)=>{setTitle(e.target.value)}} type="text" placeholder="title" 
-    style={{outline:'none',padding:'10px',width:'100%',borderColor:'gray',borderWidth:'1px',borderRadius:'25px'
-    ,height:'35px'}} />
+     />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicEmail">

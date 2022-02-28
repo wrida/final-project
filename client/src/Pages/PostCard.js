@@ -38,16 +38,12 @@ const handleKeyDown = (e) => {
 }
 
     return (
-      <div>
-      <Card style={{ width: "18rem" }}>
-      <div style={{display: 'flex',justifyContent: 'space-between',padding:'5px 10px'}}>
-        <h3>{owner.name} </h3>
-       
-      </div>
-<Button variant="outline-primary" style={{width:'50px'}} onClick={()=>setShow(true)} ><BiUser /></Button>
+      <div style={{width:'300px'}}>
+      <Card style={{ width: "100%",border:'solid 1px #B5B6B7',backgroundColor:'#EEE' }}>
+    
 
      <Card.Header>{title}</Card.Header>
-      <Image style={{width:'300px'}} src={image} width={500} height={230} mode='fit'/>
+      <Image style={{width:'300px',paddingRight:'20%',paddingLeft:'20%'}} src={image} width={300} height={300} mode='fit'/>
       <Card.Content>
         <Card.Description>{desc}</Card.Description>
         <i onClick={()=>setShowModalUpdate(true)} style={{paddingLeft:'260px',fontSize:'30px',marginBottom:'0'}} class="fas fa-edit"></i>
@@ -63,6 +59,11 @@ const handleKeyDown = (e) => {
       }} 
       onClick = {() => dispatch(deletePost(_id))}
       class="fas fa-trash"></i>
+        <div style={{display: 'flex',justifyContent:'left',padding:'5px 10px'}}>
+        <h3>{owner.name} </h3>
+       
+      </div>
+<Button variant="outline-primary" style={{width:'50px',PaddingLeft:'90%'}} onClick={()=>setShow(true)} ><BiUser /></Button>
         <input type="text" placeholder="comments" 
     style={{outline:'none',padding:'10px',width:'100%',borderColor:'gray',borderWidth:'1px',borderRadius:'25px'
     ,height:'35px'}} 
@@ -79,9 +80,7 @@ const handleKeyDown = (e) => {
           <Modal.Title>Name : {owner.name}</Modal.Title>
      </Modal.Header>
         <Modal.Body>Email : {owner.email}</Modal.Body>
-        <Modal.Body>Name : {owner.nam}</Modal.Body>
-        {/* <Modal.Body>Address : {owner.email}</Modal.Body>
-        <Modal.Body>Phone : {owner.email}</Modal.Body> */}
+        <Modal.Body>Name : {owner.name}</Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={()=>{setShow(false)}}>
             Add post
