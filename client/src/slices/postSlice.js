@@ -77,7 +77,7 @@ export const likePost = createAsyncThunk(
        } 
     }
 )
-// comment a post
+// add a comment to a post
 export const commentPost = createAsyncThunk(
     'posts/commentPost',async(post,{rejectWithValue,dispatch})=>{
        try {
@@ -89,6 +89,23 @@ export const commentPost = createAsyncThunk(
        } 
     }
 )
+// delete a comment 
+export const deleteComment = createAsyncThunk(
+    'posts/deleteComment' ,async(info,{rejectWithValue,dispatch})=> {
+        try {
+            await axios.delete(
+                `api/comment/${info}/${commentInfo.postId}`,
+                { desc:commentInfo.desc },
+                {
+                    headers: { token: localStorage.getItem('token')}
+                }
+            );
+            return dispatch(getAllPosts())
+        } catch (error) {
+            return rejectWithValue(errors.response.data)
+        }
+    }
+);
 const postSlice = createSlice({
     name: 'posts',
     initialState:{
