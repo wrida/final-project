@@ -7,9 +7,9 @@ const Post = require('../models/postModel');
 //@access PRIVATE/user
   const addComment = async(req,res) => {
   try {
-     const { desc } = req.body;
+     const { commentInfo } = req.body;
      await Post.findByIdAndUpdate(req.params.postId,{
-       $push:{comments:{ desc,commentOwner:req.userId}}
+       $push:{comments:{ commentInfo,commentOwner:req.userId}}
     }) 
      res.json({msg:'comment added'})
     } catch (error) {
