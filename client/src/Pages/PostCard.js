@@ -72,7 +72,7 @@ const handleKeyDown = (e) => {
     value={comment}
     />
      {comments.map(item=><h5>{item.desc}</h5>) }
-        {/*likes.length*/}
+        
         </Card>
         
            <Modal show={show} onHide={()=>{setShow(false)}}>
